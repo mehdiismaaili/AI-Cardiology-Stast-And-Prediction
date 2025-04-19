@@ -43,7 +43,7 @@ AI-Card-Stats-Pred/
 │   ├── app/                # Prediction API
 │   │   ├── app.py          # Flask API for predictions
 │   │   ├── config.py       # Database connection settings
-│   ├── styles.css          # CSS for styling the web interface
+│   ├── style.css          # CSS for styling the web interface
 │   ├── index.php           # Main webpage for data analysis
 │   ├── predict.php         # Webpage for heart disease prediction
 │   ├── requirements.txt    # Python dependencies
