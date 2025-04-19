@@ -59,6 +59,7 @@ C:\xampp\htdocs\AI‑Card‑Stats‑Pred\
 3. Créez et activez l’environnement virtuel :
    ```bash
    python -m venv env
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    env\Scripts\activate
    ```
 4. Installez les dépendances :
