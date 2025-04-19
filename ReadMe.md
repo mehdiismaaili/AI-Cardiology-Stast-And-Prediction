@@ -42,7 +42,6 @@ C:\xampp\htdocs\AI‑Card‑Stats‑Pred\
 │   ├─ styles.css    # CSS du frontend
 │   ├─ index.php     # page d’analyse des graphiques
 │   └─ predict.php   # page du formulaire de prédiction
-└─ train_export.py   # script pour entraîner et exporter le modèle
 ```
 
 ---
