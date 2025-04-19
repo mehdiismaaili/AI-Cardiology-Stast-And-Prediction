@@ -105,7 +105,7 @@ DB_NAME = 'cardiology'
 
 1. Dans votre terminal (env activé) :
    ```bash
-   cd C:\xampp\htdocs\AI‑Card‑Stats‑Pred
+   cd C:\xampp\htdocs\AI‑Card‑Stats‑Pred\php\app
    python train_export.py
    ```
 2. Cela génère deux fichiers :
