@@ -1,101 +1,67 @@
-Below is the regenerated setup guide as a Markdown file, suitable for inclusion in your Git repository. The content is identical to the provided guide, formatted in clean Markdown with proper headings, lists, code blocks, and structure. The guide reflects the latest project folder structure (with `predict.php` and `app/` inside `php/`) and is wrapped in an `<xaiArtifact>` tag with the same `artifact_id` (`688d6111-bbd7-4ad5-91fd-51c66a6e7f74`) since it’s an update. The Markdown is optimized for readability in a Git repository (e.g., rendering correctly in GitHub or GitLab).
+# Guide d’installation et d’utilisation de AI‑Card‑Stats‑Pred
+
+**Projet** : AI‑Card‑Stats‑Pred   
+**But** : Installer et lancer l’application web qui analyse des données cardiaques et prédit le risque de maladie.
 
 ---
 
+## 1. Présentation rapide
 
-# AI-Card-Stats-Pred Setup and Run Guide
+AI‑Card‑Stats‑Pred est une application web qui :
 
-**Project**: AI-Card-Stats-Pred  
-**Date**: April 19, 2025  
-**Purpose**: Guide to set up and run the AI-Card-Stats-Pred application for heart disease data analysis and prediction.
+1. **Analyse** un jeu de données sur les maladies cardiaques (graphiques et statistiques).  
+2. **Prédit** la probabilité de maladie à partir d’un formulaire (machine learning).  
 
-## Introduction
+Elle s’appuie sur :
+- Une base MySQL (XAMPP) pour stocker les données.
+- Une API Python (Flask) pour la prédiction.
+- Un frontend PHP pour l’affichage.
 
-The AI-Card-Stats-Pred project is a web-based application for analyzing heart disease data and predicting cardiac risk using machine learning. It uses a MySQL database to store data, a Python-based prediction API, and PHP for the frontend, served via XAMPP. This guide provides step-by-step instructions to set up the project environment, configure the database, and run the application.
+---
 
-## Prerequisites
+## 2. Ce dont vous avez besoin
 
-Before starting, ensure you have the following installed:
+- **XAMPP** (Apache + MySQL)  
+- **phpMyAdmin** (inclus dans XAMPP)  
+- **Python 3.8+**  
+- **pip**, **venv** (venv est fourni avec Python)  
+- **Éditeur de texte** (VS Code, Notepad++, etc.)  
+- **Dossier du projet** `AI‑Card‑Stats‑Pred` copié dans `C:\xampp\htdocs\`
 
-- **XAMPP**: Web server with Apache and MySQL (download from [https://www.apachefriends.org](https://www.apachefriends.org)).
-- **MySQL Workbench** or **phpMyAdmin**: For database management (phpMyAdmin is included with XAMPP).
-- **Python 3.8+**: For the virtual environment and API (download from [https://www.python.org](https://www.python.org)).
-- **Git** (optional): To clone the project repository if not already downloaded.
-- **Text Editor**: For editing configuration files (e.g., VS Code, Notepad++).
-- **Project Files**: The `AI-Card-Stats-Pred` folder, containing:
-  - `php/` (with `styles.css`, `index.php`, `predict.php`, `requirements.txt`, `db_files/`, `graphs/`, `app/`).
-  - `env/` (to be created for the virtual environment).
+---
 
-## Project Folder Structure
-
-Place the `AI-Card-Stats-Pred` folder in XAMPP’s `htdocs` directory (e.g., `C:\xampp\htdocs`). The structure is:
+## 3. Structure du projet
 
 ```
-AI-Card-Stats-Pred/
-├── env/                    # Python virtual environment (to be created)
-├── php/                    # Frontend, database scripts, graphs, and prediction API
-│   ├── db_files/           # Database setup scripts
-│   │   ├── table.sql       # SQL for creating the cardiology table
-│   │   ├── insert_data.py  # Script to insert data into the database
-│   ├── graphs/             # Graph generation scripts
-│   │   ├── config.py       # Database connection settings
-│   │   ├── [graph scripts] # Python scripts for generating graphs
-│   ├── app/                # Prediction API
-│   │   ├── app.py          # Flask API for predictions
-│   │   ├── config.py       # Database connection settings
-│   ├── styles.css          # CSS for styling the web interface
-│   ├── index.php           # Main webpage for data analysis
-│   ├── predict.php         # Webpage for heart disease prediction
-│   ├── requirements.txt    # Python dependencies
+C:\xampp\htdocs\AI‑Card‑Stats‑Pred\
+│
+├─ env\              # (sera créé) environnement Python
+├─ php\
+│   ├─ db_files\     # scripts SQL et insertion de données
+│   ├─ graphs\       # scripts Python pour générer les graphiques
+│   ├─ app\          # API Flask pour la prédiction
+│   ├─ styles.css    # styles du frontend
+│   ├─ index.php     # page d’analyse des graphiques
+│   └─ predict.php   # page du formulaire de prédiction
+└─ train_export.py   # script de formation et export du modèle
 ```
 
-## Setup Instructions
+---
 
-Follow these steps to set up and run the application. Commands assume a Windows environment (since XAMPP is mentioned); adjust for macOS/Linux if needed.
+## 4. Installation pas à pas
 
-### Step 1: Set Up the MySQL Database
+### A. Base de données MySQL
 
-1. **Start XAMPP**:
-   - Open the XAMPP Control Panel.
-   - Start the **Apache** and **MySQL** modules.
-
-2. **Access phpMyAdmin**:
-   - Open a browser and navigate to `http://localhost/phpmyadmin`.
-   - Alternatively, use MySQL Workbench to connect to `localhost` (default user: `root`, password: empty or set during XAMPP installation).
-
-3. **Create the Database**:
-   - In phpMyAdmin, click **New** in the left sidebar.
-   - Enter `cardiology` as the database name and click **Create**.
-
-4. **Create the Table**:
-   - Select the `cardiology` database in phpMyAdmin.
-   - Go to the **SQL** tab.
-   - Copy the SQL from `php/db_files/table.sql` (e.g., `C:\xampp\htdocs\AI-Card-Stats-Pred\php\db_files\table.sql`).
-   - Paste and execute the SQL to create the table (e.g., `heart_disease_stats`).
-   - Example content of `table.sql` (verify the exact structure):
-     ```sql
-     CREATE TABLE heart_disease_stats (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         age INT,
-         sex VARCHAR(10),
-         chest_pain_type VARCHAR(50),
-         resting_blood_pressure INT,
-         cholesterol INT,
-         fasting_blood_sugar VARCHAR(50),
-         resting_electrocardiogram VARCHAR(50),
-         max_heart_rate_achieved INT,
-         exercise_induced_angina VARCHAR(10),
-         st_depression FLOAT,
-         st_slope VARCHAR(20),
-         num_major_vessels INT,
-         thalassemia VARCHAR(50),
-         target INT
-     );
-     ```
-
-5. **Insert Data**:
-   - Open a terminal (e.g., Command Prompt or PowerShell).
-   - Navigate to the `php/db_files` directory:
+1. **Démarrer XAMPP** : lancez Apache et MySQL dans le panneau de contrôle.  
+2. **Créer la base**  
+   - Ouvrez phpMyAdmin (`http://localhost/phpmyadmin`).  
+   - Cliquez sur **Nouvelle** → nommez-la **cardiology** → **Créer**.  
+3. **Créer la table**  
+   - Sélectionnez **cardiology** → onglet **SQL**.  
+   - Copiez le contenu de `php/db_files/table.sql` et exécutez.  
+4. **Insérer les données**  
+   - Ouvrez un terminal CMD/PowerShell.  
+   - Allez dans `...\php\db_files` :  
      ```bash
      cd C:\xampp\htdocs\AI‑Card‑Stats‑Pred\php\db_files
      ```  
