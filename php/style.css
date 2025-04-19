@@ -1,0 +1,306 @@
+:root {
+    --primary: #007bff;
+    --dark: #0056b3;
+    --light: #e6f0ff;
+    --success: #28a745;
+    --danger: #dc3545;
+    --muted: #6c757d;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border: #d3e4ff;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--light);
+    color: #212529;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary, #007bff);
+    box-shadow: 0 2px 4px var(--shadow, rgba(0, 0, 0, 0.1));
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+    color: var(--white, #fff);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+    color: var(--white, #fff);
+}
+
+.navbar-nav .nav-link {
+    color: var(--white, #fff);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header Styles */
+.site-header {
+    background-color: var(--primary, #007bff);
+    color: var(--white, #fff);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px var(--shadow, rgba(0, 0, 0, 0.1));
+}
+
+.site-header h1 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.site-header .text-muted {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sidebar Styles */
+#toc {
+    position: sticky;
+    top: 1rem;
+    padding: 1rem;
+    background-color: var(--white, #fff);
+    border: 1px solid var(--border, #d3e4ff);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow, rgba(0, 0, 0, 0.1));
+}
+
+#toc h5 {
+    color: var(--primary, #007bff);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+#toc .nav-link {
+    color: var(--dark, #0056b3);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+#toc .nav-link:hover,
+#toc .nav-link.active {
+    color: var(--primary, #007bff);
+}
+
+/* Index.php Specific Styles */
+.predict-card {
+    background-color: var(--primary, #007bff);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.predict-card:hover {
+    transform: translateY(-5px);
+}
+
+.predict-card h1,
+.predict-card p {
+    color: var(--white, #fff);
+}
+
+.predict-btn {
+    background-color: var(--white, #fff);
+    color: var(--primary, #007bff);
+    border: 1px solid var(--primary, #007bff);
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow, rgba(0, 0, 0, 0.1));
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.predict-btn:hover {
+    background-color: var(--dark, #0056b3);
+    color: var(--white, #fff);
+    transform: scale(1.05);
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--white, #fff);
+    border: 1px solid var(--border, #d3e4ff);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px var(--shadow, rgba(0, 0, 0, 0.15));
+}
+
+.chart-card {
+    background-color: var(--white, #fff);
+    border: 1px solid var(--border, #d3e4ff);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--shadow, rgba(0, 0, 0, 0.1));
+    transition: box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+    box-shadow: 0 4px 12px var(--shadow, rgba(0, 0, 0, 0.15));
+}
+
+.chart-card img {
+    border: 1px solid var(--border, #d3e4ff);
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.chart-container {
+    padding: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-footer {
+    background-color: var(--light, #e6f0ff);
+    border-top: 1px solid var(--border, #d3e4ff);
+    font-size: 0.875rem;
+    color: var(--muted, #6c757d);
+}
+
+/* Form Styles */
+.prediction-form {
+    padding: 1rem;
+}
+
+.prediction-form .form-control {
+    border: 1px solid var(--primary, #007bff);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    height: calc(2.25rem + 2px);
+}
+
+.prediction-form .form-control:focus {
+    border-color: var(--dark, #0056b3);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.prediction-form .form-control.is-invalid {
+    border-color: var(--danger, #dc3545);
+}
+
+.prediction-form .form-label {
+    color: var(--dark, #0056b3);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.prediction-form .invalid-feedback {
+    font-size: 0.875rem;
+    color: var(--danger, #dc3545);
+}
+
+.prediction-form .btn-primary {
+    background-color: #fff;
+    color: var(--primary, #007bff);
+    border: 1px solid var(--primary, #007bff);
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow, rgba(0, 0, 0, 0.1));
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 1.5rem auto 0;
+}
+
+.prediction-form .btn-primary:hover {
+    background-color: var(--dark, #0056b3);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* General Styles */
+.section-title {
+    color: var(--primary, #007bff);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border, #d3e4ff);
+    padding-bottom: 0.5rem;
+}
+
+.subsection-title {
+    color: var(--dark, #0056b3);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.text-muted-small {
+    font-size: 0.875rem;
+    color: var(--muted, #6c757d);
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    color: #721c24;
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark, #0056b3);
+    color: var(--white, #fff);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+footer .text-muted-small {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+    .navbar-nav {
+        background-color: var(--primary, #007bff);
+        padding: 0.5rem;
+    }
+    .site-header {
+        padding: 1rem 0;
+    }
+    .site-header h1 {
+        font-size: 1.5rem;
+    }
+    .chart-card {
+        padding: 1rem;
+    }
+    .chart-container {
+        padding: 1rem;
+    }
+    .prediction-form {
+        padding: 0.5rem;
+    }
+    .prediction-form .form-control {
+        font-size: 0.875rem;
+        height: calc(2rem + 2px);
+    }
+    .prediction-form .btn-primary {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+    }
+    #toc {
+        position: static;
+        margin-bottom: 1rem;
+    }
+}
+
