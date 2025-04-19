@@ -60,15 +60,10 @@ Enter cardiology as the database name and click Create.
 Create the Table:
 
 Select the cardiology database in phpMyAdmin.
-
 Go to the SQL tab.
-
 Copy the SQL from php/db_files/table.sql (e.g., C:\xampp\htdocs\AI-Card-Stats-Pred\php\db_files\table.sql).
-
 Paste and execute the SQL to create the table (e.g., heart_disease_stats).
-
-Example content of table.sql (verify the exact structure):
-CREATE TABLE heart_disease_stats (
+Example content of table.sql (verify the exact structure):CREATE TABLE heart_disease_stats (
     id INT AUTO_INCREMENT PRIMARY KEY,
     age INT,
     sex VARCHAR(10),
@@ -92,17 +87,13 @@ CREATE TABLE heart_disease_stats (
 Insert Data:
 
 Open a terminal (e.g., Command Prompt or PowerShell).
-
-Navigate to the php/db_files directory:
-cd C:\xampp\htdocs\AI-Card-Stats-Pred\php\db_files
+Navigate to the php/db_files directory:cd C:\xampp\htdocs\AI-Card-Stats-Pred\php\db_files
 
 
-Run the data insertion script:
-python insert_data.py
+Run the data insertion script:python insert_data.py
 
 
 Ensure the script uses the correct database credentials (e.g., user=root, password=). If errors occur, update insert_data.py with your MySQL credentials (see Step 2).
-
 
 
 
@@ -111,9 +102,7 @@ Step 2: Configure Database Connections
 Edit php/graphs/config.py:
 
 Open php/graphs/config.py (e.g., C:\xampp\htdocs\AI-Card-Stats-Pred\php\graphs\config.py) in a text editor.
-
-Update the database connection details:
-DB_CONFIG = {
+Update the database connection details:DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',           # Your MySQL username
     'password': '',           # Your MySQL password
@@ -122,15 +111,12 @@ DB_CONFIG = {
 
 
 Save the file.
-
 
 
 Edit php/app/config.py:
 
 Open php/app/config.py (e.g., C:\xampp\htdocs\AI-Card-Stats-Pred\php\app\config.py).
-
-Update the same database connection details:
-DB_CONFIG = {
+Update the same database connection details:DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',           # Your MySQL username
     'password': '',           # Your MySQL password
@@ -139,7 +125,6 @@ DB_CONFIG = {
 
 
 Save the file.
-
 
 
 
@@ -148,38 +133,31 @@ Step 3: Set Up the Python Virtual Environment
 
 Create the Virtual Environment:
 
-Open a terminal and navigate to the project root:
-cd C:\xampp\htdocs\AI-Card-Stats-Pred
+Open a terminal and navigate to the project root:cd C:\xampp\htdocs\AI-Card-Stats-Pred
 
 
-Create a virtual environment named env:
-python -m venv env
+Create a virtual environment named env:python -m venv env
 
 
 
 
 Activate the Virtual Environment:
 
-Activate the environment:
-env\Scripts\activate
+Activate the environment:env\Scripts\activate
 
 
 Your terminal should show (env) to indicate the virtual environment is active.
 
 
-
 Install Dependencies:
 
-Navigate to the php folder:
-cd php
+Navigate to the php folder:cd php
 
 
-Install the required Python packages:
-pip install -r requirements.txt
+Install the required Python packages:pip install -r requirements.txt
 
 
-Example requirements.txt dependencies (verify the file):
-flask
+Example requirements.txt dependencies (verify the file):flask
 pandas
 numpy
 scikit-learn
@@ -188,8 +166,7 @@ seaborn
 mysql-connector-python
 
 
-If installation fails, ensure pip is updated:
-pip install --upgrade pip
+If installation fails, ensure pip is updated:pip install --upgrade pip
 
 
 
@@ -199,24 +176,19 @@ Step 4: Run the Prediction API
 
 Navigate to the php/app Folder:
 
-In the terminal (with env activated):
-cd C:\xampp\htdocs\AI-Card-Stats-Pred\php\app
+In the terminal (with env activated):cd C:\xampp\htdocs\AI-Card-Stats-Pred\php\app
 
 
 
 
 Run the Flask API:
 
-Start the prediction API:
-python app.py
+Start the prediction API:python app.py
 
 
 The API should start on http://localhost:5000 (or another port if specified in app.py).
-
 Keep the terminal open to keep the API running.
-
 If errors occur (e.g., ModuleNotFoundError), ensure all dependencies are installed and config.py credentials are correct.
-
 
 
 
@@ -229,24 +201,19 @@ In the XAMPP Control Panel, ensure the Apache module is running (MySQL should al
 
 Access the Application:
 
-Open a browser and navigate to:
-http://localhost/AI-Card-Stats-Pred/php/index.php
+Open a browser and navigate to:http://localhost/AI-Card-Stats-Pred/php/index.php
 
 
 The main page should load, displaying heart disease analysis graphs and a link to the prediction form.
 
 
-
 Test the Prediction Feature:
 
-Click the “Faire une Prédiction de Maladie Cardiaque” button or navigate to:
-http://localhost/AI-Card-Stats-Pred/php/predict.php
+Click the “Faire une Prédiction de Maladie Cardiaque” button or navigate to:http://localhost/AI-Card-Stats-Pred/php/predict.php
 
 
 Fill out the form (e.g., age: 29, sex: male, thalassemia: normal) and submit.
-
 Verify that the API returns a prediction (e.g., probability and risk category) and a SHAP plot.
-
 
 
 
