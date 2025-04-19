@@ -1,8 +1,3 @@
-Below is the regenerated setup guide as a Markdown file, suitable for inclusion in your Git repository. The content is identical to the provided guide, formatted in clean Markdown with proper headings, lists, code blocks, and structure. The guide reflects the latest project folder structure (with `predict.php` and `app/` inside `php/`) and is wrapped in an `<xaiArtifact>` tag with the same `artifact_id` (`688d6111-bbd7-4ad5-91fd-51c66a6e7f74`) since it’s an update. The Markdown is optimized for readability in a Git repository (e.g., rendering correctly in GitHub or GitLab).
-
----
-
-
 # AI-Card-Stats-Pred Setup and Run Guide
 
 **Project**: AI-Card-Stats-Pred  
