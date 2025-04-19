@@ -39,7 +39,7 @@ C:\xampp\htdocs\AI‑Card‑Stats‑Pred\
 │   ├─ db_files\     # scripts SQL + insertion de données
 │   ├─ graphs\       # scripts Python pour générer les graphiques
 │   ├─ app\          # API Flask pour la prédiction
-│   ├─ styles.css    # CSS du frontend
+│   ├─ style.css    # CSS du frontend
 │   ├─ index.php     # page d’analyse des graphiques
 │   └─ predict.php   # page du formulaire de prédiction
 ```
